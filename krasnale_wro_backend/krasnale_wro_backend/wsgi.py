@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'krasnale_wro_backend.settings')
+settings_module = 'krasnale_wro_backend.production' if 'WEBSITE_HOSTNAME' in os.environ else 'krasnale_wro_backend.settings'
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = get_wsgi_application()
