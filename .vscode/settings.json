@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/503269d4-9150-4a8f-86b1-ab59cf597dd9/resourceGroups/KrasnaleWroclawskie_group/providers/Microsoft.Web/sites/KrasnaleWroclawskie",
+    "appService.deploySubpath": "krasnale_wro_backend"
+}
