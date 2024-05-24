@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/django
+    ports:
+      - "8000:8000"
+    image: application:django
+    container_name: app_container
+    command: gunicorn krasnale_wro_backend.wsgi:application --bind 127.0.0.1:8000

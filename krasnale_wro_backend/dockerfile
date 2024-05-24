@@ -1,0 +1,24 @@
+# Use an official Python runtime as a parent image
+FROM python:3.10-buster
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV DJANGO_SECRET_KEY='vrw103nnxfpygnpje_$r%i==6cua6y+#+gjhxk(jj0y-c53dqw'
+
+# Set the working directory in the container
+WORKDIR /django
+
+# Copy the requirements file into the container
+COPY requirements.txt requirements.txt
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the current directory contents into the container at /django
+COPY . .
+
+# Expose port 8000
+EXPOSE 8000
+
+# Run the application
+CMD ["gunicorn", "krasnale_wro_backend.wsgi:application", "--bind", "127.0.0.1:8000"]
